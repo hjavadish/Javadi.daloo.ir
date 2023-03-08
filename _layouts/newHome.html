@@ -1,0 +1,20 @@
+---
+layout : default
+---
+<h1 style="margin-top:0;margin-bottom:4rem;">
+    {{ site.title }}
+</h1>
+
+{% include sign.html %}
+
+
+{% for post in paginator.posts %} 
+    <div>
+        <h3 style="margin-bottom:0.4375rem">
+            <a style="box-shadow:none" href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>        
+            <small style="color:#aaabd3;">
+                {{ post.date | jdate: "%A %d %b %Y" }}
+            </small>
+        </h3>
+    </div>
+{% endfor %}
