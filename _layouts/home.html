@@ -1,9 +1,31 @@
 ---
 layout : default
 ---
-<h1 style="margin-top:0;margin-bottom:4rem;">
-    {{ site.title }}
-</h1>
+    <div class="title-container">
+        <h1 class="title">
+            {{ site.title }}
+        </h1>
+        <!-- Html Elements for Search -->
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="جستجو...">
+            <ul id="results-container"> </ul>
+        </div>
+    </div>
+
+    <!-- Script pointing to search-script.js -->
+    <script src="assets/js/simple-jekyll-search.min.js" text/javascript"></script>
+    
+    <!-- Configuration -->
+    <script>
+        SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a><br><small style="color:#d3d3d3">{date}</small></li>',
+        limit: 10,
+        fuzzy:true
+        })
+    </script>
 
 {% include sign.html %}
 
